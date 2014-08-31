@@ -29,6 +29,9 @@ install vim --override-system-vi
 install homebrew/dupes/grep
 install homebrew/dupes/screen
 
+# Install docker utils
+install fig
+
 # Install other useful binaries
 install ack
 install git
