@@ -27,6 +27,8 @@ Bundle "scrooloose/nerdtree"
 Bundle "guns/vim-clojure-static"
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "tpope/vim-foreplay"
+" docker
+Bundle "ekalinin/Dockerfile.vim"
 
 filetype plugin indent on " required!
 
