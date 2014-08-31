@@ -3,17 +3,30 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
 alias g="git"
-alias h="history"
-alias j="jobs"
+alias p='ps -ef'
+alias pj='ps -ef | grep java'
+alias kj='killall java'
+alias mtvt="find . -wholename '*sure*/*.txt' -exec grep -l '^Tests run:.*FAILURE' {} \;  | tr '\n' '\0' | xargs -0 cat | less"
+alias ff='open -a Firefox'
+alias gvim='open -a MacVim.app'
+alias sql1='open /Applications/SQLDeveloper.app'
+alias sql0='kill -9 $(pj | grep SQLDeveloper | awk '"'"'{ print $2 }'"'"')'
+alias jpid='pj | awk '"'"'{ print $2 }'"'"
+
+# Maven
+alias m='mvn compile -T 1C'
+alias mi='mvn install -T 1C -DskipTests -Dmaven.javadoc.skip'
+alias mt='mvn test'
+alias mci='mvn clean install -T 1C -DskipTests -Dmaven.javadoc.skip'
+alias mcit='mvn clean install -Dmaven.javadoc.skip'
+alias mcc='mvn clean cobertura:cobertura cobertura:check'
+alias mcr='ff target/site/cobertura/index.html'
+alias mr1='mvn --batch-mode clean release:prepare -Darguments="-DskipTests"'
+alias mr2='mvn release:perform -Darguments="-DskipTests"'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -49,7 +62,8 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
+alias localip0="ipconfig getifaddr en0"
+alias localip1="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Flush Directory Service cache
@@ -96,10 +110,6 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
