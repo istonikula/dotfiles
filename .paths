@@ -1,0 +1,14 @@
+# brew info coreutils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# brew info gnu-tar
+PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/gnu-tar/share/man:$MANPATH"
+
+# brew info gnu-sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+
+export PATH
+export MANPATH
