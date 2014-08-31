@@ -29,6 +29,7 @@ Bundle "kien/rainbow_parentheses.vim"
 Bundle "tpope/vim-foreplay"
 " docker
 Bundle "ekalinin/Dockerfile.vim"
+Bundle "thiderman/vim-supervisor"
 
 filetype plugin indent on " required!
 
