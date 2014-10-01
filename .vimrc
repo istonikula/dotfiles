@@ -45,11 +45,12 @@ imap <c-space> <c-x><c-o>
 " Maintain backup files and temp files
 " in ~/.vimfiles
 "--------------------------------------
-set backup
-set undofile
-set backupdir=$HOME/.vimfiles/backup
-set undodir=$HOME/.vimfiles/undo
-set directory=$HOME/.vimfiles/swap
+set nobackup
+set noundofile
+set noswapfile
+set backupdir=$HOME/Dropbox/.vimfiles/backup
+set undodir=$HOME/Dropbox/.vimfiles/undo
+set directory=$HOME/Dropbox/.vimfiles/swap
 set backupskip=/tmp/*,/private/tmp/*
 
 "--------------------------------------
