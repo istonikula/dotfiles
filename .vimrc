@@ -1,5 +1,7 @@
 :so ~/.vim/bundles.vim
 
+set encoding=utf-8 nobomb
+
 let mapleader="," " this MUST come before any <Leader> mappings
 let maplocalleader="_"
 
@@ -48,10 +50,10 @@ imap <c-space> <c-x><c-o>
 set nobackup
 set noundofile
 set noswapfile
-set backupdir=$HOME/Dropbox/.vimfiles/backup
-set undodir=$HOME/Dropbox/.vimfiles/undo
-set directory=$HOME/Dropbox/.vimfiles/swap
-set backupskip=/tmp/*,/private/tmp/*
+"set backupdir=$HOME/Dropbox/.vimfiles/backup
+"set undodir=$HOME/Dropbox/.vimfiles/undo
+"set directory=$HOME/Dropbox/.vimfiles/swap
+"set backupskip=/tmp/*,/private/tmp/*
 
 "--------------------------------------
 " Misc
@@ -59,7 +61,7 @@ set backupskip=/tmp/*,/private/tmp/*
 
 " show invisible characters
 set list
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+ set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 
 set nu " line numbering
 set ruler
