@@ -138,6 +138,7 @@ command -v grunt > /dev/null && alias grunt="grunt --stack"
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
+alias v0="stfu"
 alias pumpitup="osascript -e 'set volume 7'"
 
 # Kill all the tabs in Chrome to free up memory
