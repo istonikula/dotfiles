@@ -255,5 +255,5 @@ function lo0alias1() {
 }
 
 function lo0alias0() {
-  sudo ifconfig lo -alias $1
+  sudo ifconfig lo0 -alias $1
 }
