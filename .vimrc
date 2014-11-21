@@ -71,4 +71,4 @@ set hls " hightlight search
 set wildmenu " allow tab completion
 set wildmode=full
 set laststatus=2
-
+set backspace=2
