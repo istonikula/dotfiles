@@ -5,31 +5,38 @@ set nocompatible
 filetype on  " required on OSX
 filetype off " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'wincent/Command-T'
-Bundle 'Lokaltog/vim-powerline'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'sjl/gundo.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-sleuth'
+
 " snipmate and deps (https://github.com/garbas/vim-snipmate)
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
-Bundle "garbas/vim-snipmate"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+
 " themes
-Bundle "nanotech/jellybeans.vim"
-" tagbar
-Bundle "majutsushi/tagbar"
-" nerdtree
-Bundle "scrooloose/nerdtree"
-" clojure
-Bundle "guns/vim-clojure-static"
-Bundle "kien/rainbow_parentheses.vim"
-Bundle "tpope/vim-foreplay"
-" docker
-Bundle "ekalinin/Dockerfile.vim"
-Bundle "thiderman/vim-supervisor"
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
 
+" javascript
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'pangloss/vim-javascript'
+
+call vundle#end()
 filetype plugin indent on " required!
-
