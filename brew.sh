@@ -1,47 +1,48 @@
+#!/usr/bin/env bash
+
 # Install command-line tools using Homebrew
-# Usage: `brew bundle Brewfile`
 
 # Make sure we’re using the latest Homebrew
-update
+brew update
 
 # Upgrade any already-installed formulae
-upgrade
+brew upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-install coreutils
+brew install coreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, overwriting build-ins
-install findutils --default-names
+brew install findutils --default-names
 # Install GNU  `tar`, `g`-prefixed
-install gnu-tar
+brew install gnu-tar
 # Install GNU `sed`, overwriting the build-in `sed`
-install gnu-sed  --default-names
+brew install gnu-sed  --default-names
 # Install Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
-install bash
-install bash-completion
+brew install bash
+brew install bash-completion
 
 # Install wget with IRI support
-install wget --enable-iri
+brew install wget --enable-iri
 
 # Install more recent versions of some OS X tools
-install vim --override-system-vi
-install homebrew/dupes/grep
-install homebrew/dupes/screen
+brew install vim --override-system-vi
+brew install homebrew/dupes/grep
+brew install homebrew/dupes/screen
 
 # Install docker utils
-install fig
+brew install fig
 
 # Install other useful binaries
-install ack
-install git
-install git-flow
-install imagemagick --with-webp
-install node # This installs `npm` too using the recommended installation method
-install pigz
-install pv
-install tree
-install ucspi-tcp # `tcpserver` et al.
+brew install ack
+brew install git
+brew install git-flow
+brew install imagemagick --with-webp
+brew install node # This installs `npm` too using the recommended installation method
+brew install pigz
+brew install pv
+brew install tree
+brew install ucspi-tcp # `tcpserver` et al.
 
 # Remove outdated versions from the cellar
-cleanup
+brew cleanup
