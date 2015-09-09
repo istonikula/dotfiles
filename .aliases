@@ -28,6 +28,9 @@ alias mcr='ff target/site/cobertura/index.html'
 alias mr1='mvn --batch-mode clean release:prepare -Darguments="-DskipTests"'
 alias mr2='mvn release:perform -Darguments="-DskipTests"'
 
+# Gradle
+alias gcb='gradle clean build'
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
