@@ -2,15 +2,15 @@
 
 set encoding=utf-8 nobomb
 
-let mapleader="," " this MUST come before any <Leader> mappings
-let maplocalleader="_"
+let mapleader="\<Space>" " this MUST come before any <Leader> mappings
+"let maplocalleader="_"
 
 "--------------------------------------
 " Syntax
 "--------------------------------------
 syntax on
 set showmatch
-colo jellybeans
+colo darcula
 " colo solarized
 set cul
 
@@ -39,10 +39,12 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 imap <c-space> <c-x><c-o>
 
 let g:ctrlp_map = '<Leader>n'
+nnoremap <Leader>o : CtrlP<CR>
 nmap <Leader>m :CtrlPMRUFiles<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <Leader>fu :CtrlPFunky<CR>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 map <Leader><Leader> <Plug>(easymotion-prefix)
 
@@ -54,6 +56,10 @@ map <c-l> <c-w>l
 
 let jshint2_read = 1
 let jshint2_save = 1
+
+" expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 
 "--------------
@@ -86,12 +92,7 @@ set backspace=2
 set mouse=a
 
 let g:airline_powerline_fonts = 1
-"function! AirlineInit()
-"  let g:airline_section_b = airline#section#create(['branch'])
-"  let g:airline_section_c = '%<%t%m'
-"  let g:airline_section_warning = airline#section#create(['syntastic'])
-"endfunction
-"autocmd VimEnter * if exists(':AirlineToggle') | call AirlineInit()
+"let g:airline#extensions#tabline#enabled = 1
 if has("gui_running")
    let s:uname = system("uname")
    if s:uname == "Darwin\n"
@@ -103,5 +104,4 @@ nnoremap <Left>     :echoerr "Use h"<CR>
 nnoremap <Right>    :echoerr "Use l"<CR>
 nnoremap <Up>       :echoerr "Use k"<CR>
 nnoremap <Down>     :echoerr "Use j"<CR>
-
 
