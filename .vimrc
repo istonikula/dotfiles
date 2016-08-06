@@ -27,7 +27,7 @@ set softtabstop=2
 "--------------------------------------
 " Custom key mappings
 "--------------------------------------
-map <C-l> <C-]>
+nnoremap t <C-]>
 
 " edit vim config
 nnoremap <silent> <Leader>rc :tabnew<CR>:e ~/.vimrc<CR>
@@ -73,6 +73,9 @@ set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 
 set nu " line numbering
 set ruler
+set autoread
+set ignorecase
+set smartcase
 set showcmd
 set incsearch
 set hls " hightlight search
@@ -101,13 +104,4 @@ nnoremap <Right>    :echoerr "Use l"<CR>
 nnoremap <Up>       :echoerr "Use k"<CR>
 nnoremap <Down>     :echoerr "Use j"<CR>
 
-augroup commenting_blocks_of_code
-  autocmd!
-  autocmd FileType c,cpp,java,javascript,scala let b:comment_leader = '// '
-  autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-  autocmd FileType conf,fstab       let b:comment_leader = '# '
-  autocmd FileType vim              let b:comment_leader = '" '
-  noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-  noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-augroup END
 
