@@ -13,6 +13,7 @@ set showmatch
 colo darcula
 " colo solarized
 set cul
+set cuc
 
 "--------------------------------------
 " Indent
@@ -39,9 +40,9 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 imap <c-space> <c-x><c-o>
 
 let g:ctrlp_map = '<Leader>n'
-nnoremap <Leader>o : CtrlP<CR>
-nmap <Leader>m :CtrlPMRUFiles<CR>
-nmap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>o : CtrlPBuffer<CR>
+"nmap <Leader>m :CtrlPMRUFiles<CR>
+"nmap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>fu :CtrlPFunky<CR>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
@@ -105,3 +106,10 @@ nnoremap <Right>    :echoerr "Use l"<CR>
 nnoremap <Up>       :echoerr "Use k"<CR>
 nnoremap <Down>     :echoerr "Use j"<CR>
 
+" elm
+"let g:elm_format_autosave = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+nnoremap <Leader>m :ElmMake<CR>
