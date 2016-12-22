@@ -22,9 +22,9 @@ function mkd() {
 }
 
 # Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
-}
+#function cdf() { # short for `cdfinder`
+#	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+#}
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
@@ -239,13 +239,13 @@ function o() {
 
 # `t` with no arguments opens the current directory in TextWrangler, otherwise opens the given
 # location
-function t() {
-	if [ $# -eq 0 ]; then
-		open -a /Applications/TextWrangler.app .;
-	else
-		open -a /Applications/TextWrangler.app "$@";
-	fi;
-}
+#function t() {
+#	if [ $# -eq 0 ]; then
+#		open -a /Applications/TextWrangler.app .;
+#	else
+#		open -a /Applications/TextWrangler.app "$@";
+#	fi;
+#}
 
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
