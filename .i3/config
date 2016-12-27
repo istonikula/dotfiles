@@ -223,6 +223,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 assign [class="Vivaldi-stable"] $workspace1
+assign [class="Corebird"] $workspace9
+assign [class="flowdock-nativefier-137d04"] $workspace9
+assign [class="Slack"] $workspace9
 #exec compton -f
 exec_always feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png 
 exec dropbox start
