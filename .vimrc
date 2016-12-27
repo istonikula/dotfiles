@@ -13,7 +13,7 @@ set showmatch
 colo darcula
 " colo solarized
 set cul
-set cuc
+"set cuc
 
 "--------------------------------------
 " Indent
@@ -93,12 +93,11 @@ set backspace=2
 set mouse=a
 
 let g:airline_powerline_fonts = 1
+"let g:airline_theme='powerlineish'
 "let g:airline#extensions#tabline#enabled = 1
 if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h14
-   endif
+  set guifont=Inconsolata\ for\ Powerline\ 11
+  "set guifont=Monospace\ 10
 endif
 
 nnoremap <Left>     :echoerr "Use h"<CR>
