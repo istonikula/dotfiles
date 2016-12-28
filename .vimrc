@@ -91,6 +91,7 @@ set wildmode=full
 set laststatus=2
 set backspace=2
 set mouse=a
+set clipboard=unnamed,unnamedplus
 
 let g:airline_powerline_fonts = 1
 "let g:airline_theme='powerlineish'
