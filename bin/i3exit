@@ -1,0 +1,19 @@
+#!/bin/bash
+
+lock() {
+  i3lock -c "#2f343f"
+}
+
+case "$1" in
+  suspend)
+    lock && systemctl suspend
+    ;;
+  reboot)
+    systemctl reboot
+    ;;
+  poweroff)
+    systemctl poweroff
+    ;;
+esac
+
+exit 0
