@@ -74,6 +74,10 @@ set noswapfile
 " Misc
 "--------------------------------------
 
+" disable Background Color Erase (BCE) so that color schemes 
+" render properly when inside tmux
+set t_ut=
+
 " show invisible characters
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
