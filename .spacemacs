@@ -40,7 +40,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -294,6 +294,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default
    ;; https://github.com/syl20bnr/spacemacs/issues/5101
    evil-search-module 'evil-search
+   ;; use spacemacs for git commit messages
+   global-git-commit-mode t
+   magit-repository-directories '("~/Projects/")
    ))
 
 (defun dotspacemacs/user-config ()
