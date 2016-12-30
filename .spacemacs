@@ -291,7 +291,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (setq-default
+   ;; https://github.com/syl20bnr/spacemacs/issues/5101
+   evil-search-module 'evil-search
+   ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
