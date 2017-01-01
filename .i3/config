@@ -248,6 +248,10 @@ mode $mode_system {
 bindsym $mod+Pause mode $mode_system
 
 # Scratchpad
+for_window [class="Pasaffe"] move scratchpad
+for_window [class="Thunar"] move scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-for_window [class="Pasaffe"] move scratchpad
+bindsym $mod+p [class="Pasaffe"] scratchpad show
+bindsym $mod+t [class="Thunar"] scratchpad show
+
