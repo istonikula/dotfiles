@@ -39,7 +39,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 #bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -config ~/.rofi/config -font 'Source Code Pro, Font Awesome 20'"
-bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -bc '$bg-color' -bg '$bg-color' -fg '$text-color' -hlbg '$bg-color' -hlfg '#9575cd' -font 'System San Francisco Display 24'
+bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -bc '$border-color' -bg '$bg-color' -fg '$text-color' -hlbg '$bg-color' -hlfg '$border-color' -font 'Source Code Pro,Font Awesome 20'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -105,7 +105,7 @@ set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8  "
 set $workspace9 "9 "
-set $workspace10 "10 " 
+set $workspace10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -173,11 +173,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
+set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
+set $border-color        #9575cd
 
 # window colors
 #                       border              background         text                 indicator
@@ -225,11 +226,6 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-assign [class="Vivaldi-stable"] $workspace1
-assign [class="Corebird"] $workspace9
-assign [class="flowdock-nativefier-137d04"] $workspace9
-assign [class="Slack"] $workspace9
-#exec compton -f
 exec_always feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png 
 exec dropbox start
 
@@ -237,7 +233,7 @@ exec dropbox start
 bindsym Print exec scrot -e 'mv $f ~/Desktop/'
 bindsym $mod+Print exec scrot -s -e 'mv $f ~/Desktop/'
 
-set $mode_system "System (s) suspend, (r) reboot, (p) poweroff"
+set $mode_system "[s]uspend [r]eboot [p]oweroff"
 mode $mode_system {
   bindsym s exec i3exit suspend, mode "default"
   bindsym r exec i3exit reboot, mode "default"
@@ -264,4 +260,4 @@ exec xrandr --dpi 180
 # Touchpad config
 set $touchpad DLL0704:01 06CB:76AE Touchpad
 exec xinput set-prop "$touchpad" "Synaptics Tap Time" 0 # original 180
-exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 0
+exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
