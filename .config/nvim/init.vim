@@ -95,7 +95,6 @@ set wildmode=full
 set laststatus=2
 set backspace=2
 set mouse=a
-set relativenumber
 
 "airline
 let g:airline_powerline_fonts = 1
@@ -107,10 +106,21 @@ endif
 "--------------------------------------
 " Indent
 "--------------------------------------
-set autoindent
+set ai
 set si
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+"--------------------------------------
+" Editing
+"--------------------------------------
+
+" moving lines http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
