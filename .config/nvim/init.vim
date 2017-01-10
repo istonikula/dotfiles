@@ -22,34 +22,36 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-notes'
 Plug 'edkolev/tmuxline.vim'
-
-" snipmate and deps (https://github.com/garbas/vim-snipmate)
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'honza/vim-snippets'
-Plug 'garbas/vim-snipmate'
+Plug 'Yggdroot/indentLine'
 
 " themes
 Plug 'nanotech/jellybeans.vim'
 Plug 'blueshirts/darcula'
 Plug 'fcpg/vim-fahrenheit'
 
-" javascript
-Plug 'Shutnik/jshint2.vim'
-Plug 'marijnh/tern_for_vim'
-Plug 'pangloss/vim-javascript'
+" syntax 
+Plug 'sheerun/vim-polyglot'
 
-" elm
-"Plugin 'lambdatoast/elm.vim'
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" completion, details: https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ervandew/supertab'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'sudo yarn global add yarn' }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " elixir
-Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
+
 call plug#end()
 
 "--------------------------------------
 " Generic
 "--------------------------------------
+
 let mapleader="\<Space>" " this MUST come before any <Leader> mappings
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 let g:ctrlp_map = '<Leader>n'
@@ -76,6 +78,7 @@ set noswapfile
 syntax on
 set showmatch
 colo darcula
+"colo OceanicNext
 set cul
 
 " show invisible characters
@@ -98,20 +101,15 @@ set mouse=a
 
 "airline
 let g:airline_powerline_fonts = 1
-if has("gui_running")
-  set guifont=Roboto\ for\ Powerline\ 11
-endif
-
+" if has("gui_running")
+"   set guifont=Roboto\ for\ Powerline\ 10
+" endif
 
 "--------------------------------------
 " Indent
 "--------------------------------------
-set ai
-set si
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+" http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
+set expandtab ts=2 sts=2 sw=2
 
 "--------------------------------------
 " Editing
@@ -124,3 +122,23 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+"--------------------------------------
+" Code completion
+"--------------------------------------
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:SuperTabClosePreviewOnPopupClose = 1
