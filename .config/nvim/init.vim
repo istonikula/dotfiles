@@ -14,7 +14,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'sjl/gundo.vim'
-Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
@@ -22,15 +23,17 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-notes'
 Plug 'edkolev/tmuxline.vim'
-Plug 'Yggdroot/indentLine'
 
 " themes
 Plug 'nanotech/jellybeans.vim'
 Plug 'blueshirts/darcula'
 Plug 'fcpg/vim-fahrenheit'
+Plug 'mhartington/oceanic-next'
 
 " syntax 
 Plug 'sheerun/vim-polyglot'
+"Plug 'othree/yajs.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -45,6 +48,8 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " elixir
 Plug 'mattreduce/vim-mix'
+
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -75,15 +80,18 @@ set noswapfile
 "--------------------------------------
 " Syntax
 "--------------------------------------
-syntax on
+set termguicolors
+syntax enable
 set showmatch
 colo darcula
-"colo OceanicNext
 set cul
 
 " show invisible characters
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+
+" polyglot disable
+"let g:polyglot_disabled = ['javascript', 'typescript']
 
 "--------------------------------------
 " Visuals
@@ -101,9 +109,6 @@ set mouse=a
 
 "airline
 let g:airline_powerline_fonts = 1
-" if has("gui_running")
-"   set guifont=Roboto\ for\ Powerline\ 10
-" endif
 
 "--------------------------------------
 " Indent
