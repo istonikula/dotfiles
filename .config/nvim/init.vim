@@ -114,7 +114,7 @@ let g:airline_powerline_fonts = 1
 " Indent
 "--------------------------------------
 " http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
-set expandtab ts=2 sts=2 sw=2
+set ts=2 sts=2 sw=2 expandtab
 
 "--------------------------------------
 " Editing
@@ -147,3 +147,4 @@ autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:SuperTabClosePreviewOnPopupClose = 1
+
