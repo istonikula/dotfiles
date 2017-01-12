@@ -156,3 +156,9 @@ alias reload="exec $SHELL -l"
 
 # Faster npm for Europeans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
+
+# apt
+alias au="sudo apt update"
+alias auu="sudo apt upgrade"
+alias alsu="sudo apt list --upgradeable"
+
