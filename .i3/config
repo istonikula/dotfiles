@@ -220,9 +220,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -262,10 +259,13 @@ exec --no-startup-id nm-applet
 exec xrandr --dpi 180
 
 # Touchpad config
-set $touchpad DLL0704:01 06CB:76AE Touchpad
+set $touchpad DLL075B:01 06CB:76AF Touchpad
 exec xinput set-prop "$touchpad" "Synaptics Tap Time" 0 # original 180
 exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
 
 
 for_window [class="Pasaffe"] floating enable, border normal
 
+# Keyboard layout swith
+bindsym $mod+Mod1+1 exec setxkbmap us
+bindsym $mod+Mod1+2 exec setxkbmap fi
