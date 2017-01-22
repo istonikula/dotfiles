@@ -267,5 +267,5 @@ exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
 for_window [class="Pasaffe"] floating enable, border normal
 
 # Keyboard layout switch
-bindsym $mod+Mod1+1 exec setxkbmap us
-bindsym $mod+Mod1+2 exec setxkbmap fi
+bindsym $mod+Mod1+1 exec setxkbmap us; exec pkill -SIGRTMIN+1 i3blocks
+bindsym $mod+Mod1+2 exec setxkbmap fi; exec pkill -SIGRTMIN+1 i3blocks
