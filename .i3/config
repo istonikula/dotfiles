@@ -125,7 +125,6 @@ bindsym $mod+0 workspace $workspace10
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -255,14 +254,25 @@ bindsym $mod+p [class="Pasaffe"] scratchpad show
 #bindsym $mod+t [class="Thunar"] scratchpad show
 
 exec --no-startup-id nm-applet
-#exec_always xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 2048x1152 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
-exec xrandr --dpi 180
+
+# Display
+
+exec xrandr --dpi 168 # 1.75*96
+  # laptop only
+bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+  # external UHD
+bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --mode 3840x2160
+  # external 2560x1440
+bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0
+  # laptop below of external 2560x1440
+bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP1 --scale 1x1 --pos 320x2520 --output DP1 --scale 1.75x1.75 --mode 2560x1440_60.00 --fb 4480x4320 --pos 0x0
+  # external 2560x1440 (with new modeline from cvt)
+bindsym $mod+Mod1+6 "exec --no-startup-id xrandr --newmode '2560x1440_60.00' 312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync;exec --no-startup-id xrandr --addmode DP1 2560x1440_60.00;exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0"
 
 # Touchpad config
 set $touchpad DLL075B:01 06CB:76AF Touchpad
 exec xinput set-prop "$touchpad" "Synaptics Tap Time" 0 # original 180
 exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
-
 
 for_window [class="Pasaffe"] floating enable, border normal
 
