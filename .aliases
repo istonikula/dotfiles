@@ -161,3 +161,6 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.e
 alias au="sudo apt update"
 alias auu="sudo apt upgrade"
 alias auls="sudo apt list --upgradeable"
+alias als="sudo apt-cache policy | grep http | awk '{print \$2\"/\"\$3}' | sort -u"
+
+alias bg="feh --bg-scale ~/.wallpapers/vim-shortcuts2560x1600.png"
