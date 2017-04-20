@@ -47,10 +47,10 @@ bindsym $mod+Tab exec "rofi -show window -bc '$border-color' -bg '$bg-color' -fg
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -247,21 +247,26 @@ bindsym $mod+Delete mode $mode_system
 bindsym $mod+o move scratchpad
 bindsym $mod+i scratchpad show
 bindsym $mod+p [class="Pasaffe"] scratchpad show
+bindsym $mod+j [class="jetbrains-idea" instance="sun-awt-X11-XDialogPeer"] scratchpad show
 #bindsym $mod+t [class="Thunar"] scratchpad show
 
 exec --no-startup-id nm-applet
 
 # Display
 
+#exec xrandr --dpi 96
 #exec xrandr --dpi 168 # 1.75*96
-exec xrandr --dpi 144 # 1.75*96
+exec xrandr --dpi 144 # 1.5*96
+#exec xrandr --dpi 120 # 1.25*96
   # laptop only
 bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
   # external UHD
 bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160
 #bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP1 --off --output DP1-2 --primary --mode 3840x2160
   # external 2560x1440
-bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0
+bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --primary --mode 3200x1800 --scale 0.67x0.67 
+#bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --scale 1.5x1.5 --fb 5760x3240 --panning 5760x3240 --pos 0x0
+#bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0
   # laptop below of external 2560x1440
 bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP1 --scale 1x1 --pos 320x2520 --output DP1 --scale 1.75x1.75 --mode 2560x1440_60.00 --fb 4480x4320 --pos 0x0
   # external 2560x1440 (with new modeline from cvt)
