@@ -81,6 +81,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+workspace_layout tabbed
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -212,8 +213,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+#  see https://unix.stackexchange.com/questions/337663/how-to-write-to-sys-with-a-script-after-rebooting-sudo
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo ~/.i3/brightness + 75
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo ~/.i3/brightness - 75
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -253,8 +255,6 @@ bindsym $mod+t [class="Thunar"] scratchpad show
 for_window [class="Pasaffe"] floating enable, border normal
 for_window [class="Thunar"] floating enable, border normal
 
-for_window [class="jetbrains-idea"] focus_follows_mouse no
-
 exec --no-startup-id nm-applet
 
 # Display
@@ -264,9 +264,9 @@ exec --no-startup-id nm-applet
 exec xrandr --dpi 144 # 1.5*96
 #exec xrandr --dpi 120 # 1.25*96
   # laptop only
-bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP-1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-2 --off
   # external UHD
-bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160
+bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --primary --mode 3840x2160
 #bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP1 --off --output DP1-2 --primary --mode 3840x2160
   # external 2560x1440
 bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --primary --mode 3200x1800 --scale 0.67x0.67 
