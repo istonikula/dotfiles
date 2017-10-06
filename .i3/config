@@ -11,10 +11,12 @@
 
 set $mod Mod4
 
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
 font pango:System San Francisco Display,Font Awesome 10
+# font pango:Monoisome 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -33,13 +35,14 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec gnome-terminal --window-with-profile=i3 --hide-menubar
+bindsym $mod+Shift+Return exec alacritty -e ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -bc '$border-color' -bg '$bg-color' -fg '$text-color' -hlbg '$bg-color' -hlfg '$border-color' -font 'Source Code Pro,Font Awesome 20'"
-bindsym $mod+Tab exec "rofi -show window -bc '$border-color' -bg '$bg-color' -fg '$text-color' -hlbg '$bg-color' -hlfg '$border-color' -font 'Source Code Pro,Font Awesome 20'"
+bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -font 'Monoid 18'"
+bindsym $mod+Tab exec "rofi -show window -font 'Monoid 18'"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -107,9 +110,8 @@ set $workspace4 "4 "
 set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
-set $workspace8 "8  "
-set $workspace9 "9 "
-set $workspace10 "10 "
+set $workspace8 "8 "
+set $workspace9 "9 "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -121,7 +123,6 @@ bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
 
 #bindsym $mod+Tab workspace next
 #bindsym $mod+Shift+Tab workspace prev
@@ -136,10 +137,6 @@ bindsym $mod+Shift+6 move container to workspace $workspace6
 bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
-
-# load workspace layouts
-bindsym $mod+Shift+Mod1+9 workspace $workspace9, append_layout ~/.i3/ws9.json
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -152,28 +149,19 @@ bindsym $mod+shift+x exec i3lock -c "$bg-color"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
-
-  # Pressing left will shrink the window’s width.
-  # Pressing right will grow the window’s width.
-  # Pressing up will shrink the window’s height.
-  # Pressing down will grow the window’s height.
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
 
-  # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
-  # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 set $bg-color            #2f343f
@@ -189,6 +177,7 @@ client.focused          $bg-color           $bg-color          $text-color      
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -223,9 +212,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-#exec_always feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png 
-exec_always feh --bg-scale ~/.wallpapers/vim-shortcuts2560x1600.png
-exec dropbox start
+exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png 
+#exec_always feh --bg-scale ~/.wallpapers/vim-shortcuts2560x1600.png
+exec --no-startup-id  dropbox start
 
 # Screenshots
 bindsym Print exec scrot -e 'mv $f ~/Desktop/'
@@ -251,38 +240,37 @@ bindsym $mod+i scratchpad show
 bindsym $mod+p [class="Pasaffe"] scratchpad show
 bindsym $mod+j [class="jetbrains-idea" instance="sun-awt-X11-XDialogPeer"] scratchpad show
 bindsym $mod+t [class="Thunar"] scratchpad show
+bindsym $mod+n [class="Nautilus"] scratchpad show
 
 for_window [class="Pasaffe"] floating enable, border normal
 for_window [class="Thunar"] floating enable, border normal
+for_window [class="Nautilus"] floating enable, border normal
 
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Display
 
 #exec xrandr --dpi 96
 #exec xrandr --dpi 168 # 1.75*96
-exec xrandr --dpi 144 # 1.5*96
+#exec xrandr --dpi 144 # 1.5*96
+exec --no-startup-id xrandr --dpi 132 # 1.38*96
 #exec xrandr --dpi 120 # 1.25*96
   # laptop only
 bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP-1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-2 --off
   # external UHD
 bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --primary --mode 3840x2160
-#bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP1 --off --output DP1-2 --primary --mode 3840x2160
-  # external 2560x1440
-bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --primary --mode 3200x1800 --scale 0.67x0.67 
-#bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 3840x2160 --scale 1.5x1.5 --fb 5760x3240 --panning 5760x3240 --pos 0x0
-#bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0
-  # laptop below of external 2560x1440
-bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP1 --scale 1x1 --pos 320x2520 --output DP1 --scale 1.75x1.75 --mode 2560x1440_60.00 --fb 4480x4320 --pos 0x0
+  # laptop below of external 1920x1080
+bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP-1 --scale 1x1 --pos 0x1490 --output DP-1 --scale 1.38x1.38 --mode 1920x1080 --fb 3200x3290 --pos 0x0
   # external 2560x1440 (with new modeline from cvt)
 bindsym $mod+Mod1+6 "exec --no-startup-id xrandr --newmode '2560x1440_60.00' 312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync;exec --no-startup-id xrandr --addmode DP1 2560x1440_60.00;exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0"
 
 # Touchpad config
 set $touchpad DLL075B:01 06CB:76AF Touchpad
-exec xinput set-prop "$touchpad" "Synaptics Tap Time" 0 # original 180
-exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
+#exec xinput set-prop "$touchpad" "Synaptics Tap Time" 0 # original 180
+#exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
 
 # Keyboard layout switch
 bindsym $mod+Mod1+1 exec setxkbmap us; exec pkill -SIGRTMIN+1 i3blocks
 bindsym $mod+Mod1+2 exec setxkbmap fi; exec pkill -SIGRTMIN+1 i3blocks
 
+focus_follows_mouse no
