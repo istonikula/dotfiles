@@ -4,15 +4,26 @@ lock() {
   i3lock -c "#2f343f"
 }
 
+login1send() {
+  dbus-send --system --print-reply \
+    --dest=org.freedesktop.login1 \
+    /org/freedesktop/login1 \
+    org.freedesktop.login1.Manager.$1 \
+    boolean:true
+}
+
 case "$1" in
   suspend)
-    lock && systemctl suspend
+    # lock && systemctl suspend
+    lock && login1send Suspend
     ;;
   reboot)
-    systemctl reboot
+    # systemctl reboot
+    login1send Reboot
     ;;
   poweroff)
-    systemctl poweroff
+    # systemctl poweroff
+    login1send PowerOff
     ;;
 esac
 
