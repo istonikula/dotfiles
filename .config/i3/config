@@ -274,5 +274,6 @@ set $touchpad DLL075B:01 06CB:76AF Touchpad
 # Keyboard layout switch
 bindsym $mod+Mod1+1 exec setxkbmap us; exec pkill -SIGRTMIN+1 i3blocks
 bindsym $mod+Mod1+2 exec setxkbmap fi; exec pkill -SIGRTMIN+1 i3blocks
+exec xmodmap ~/.Xmodmap
 
 focus_follows_mouse no
