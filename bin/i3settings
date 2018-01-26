@@ -1,3 +1,4 @@
 #!/bin/bash
 
-XDG_CURRENT_DESKTOP=Unity unity-control-center
+# XDG_CURRENT_DESKTOP=Unity unity-control-center
+XDG_CURRENT_DESKTOP=GNOME gnome-control-center

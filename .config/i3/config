@@ -197,9 +197,9 @@ bar {
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
 #  see http://haikarainen.github.io/light
@@ -252,15 +252,17 @@ for_window [class="Gnome-control-center"] floating enable, border none
 
 # Display
 
-#exec xrandr --dpi 96
-#exec xrandr --dpi 168 # 1.75*96
-#exec xrandr --dpi 144 # 1.5*96
+#exec --no-startup-id xrandr --dpi 168 # 1.75*96
+#exec --no-startup-id xrandr --dpi 144 # 1.5*96
 exec --no-startup-id xrandr --dpi 132 # 1.38*96
-#exec xrandr --dpi 120 # 1.25*96
+#exec --no-startup-id xrandr --dpi 120 # 1.25*96
+#exec --no-startup-id  xrandr --dpi 96
+
   # laptop only
 bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP-1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-2 --off
   # external UHD
 bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --primary --mode 3840x2160
+# bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --primary --mode 3440x1440
   # laptop below of external 1920x1080
 bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP-1 --scale 1x1 --pos 0x1490 --output DP-1 --scale 1.38x1.38 --mode 1920x1080 --fb 3200x3290 --pos 0x0
   # external 2560x1440 (with new modeline from cvt)
@@ -272,8 +274,8 @@ set $touchpad DLL075B:01 06CB:76AF Touchpad
 #exec xinput set-prop "$touchpad" "Synaptics Palm Detection" 1
 
 # Keyboard layout switch
-bindsym $mod+Mod1+1 exec setxkbmap us; exec pkill -SIGRTMIN+1 i3blocks
-bindsym $mod+Mod1+2 exec setxkbmap fi; exec pkill -SIGRTMIN+1 i3blocks
-exec xmodmap ~/.Xmodmap
+# bindsym $mod+Mod1+1 exec setxkbmap us; exec pkill -SIGRTMIN+1 i3blocks
+# bindsym $mod+Mod1+2 exec setxkbmap fi; exec pkill -SIGRTMIN+1 i3blocks
+exec_always --no-startup-id xmodmap ~/.Xmodmap
 
 focus_follows_mouse no
