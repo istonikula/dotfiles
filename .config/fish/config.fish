@@ -61,3 +61,20 @@ set -xg JAVA_HOME /opt/java/jdk1.8
 
 alias ipext="dig +short myip.opendns.com @resolver1.opendns.com"
 
+# docker
+function drm
+  docker ps -aq --no-trunc | xargs -r docker rm
+end
+function dls
+  docker ps
+end
+function dla
+  docker ps -a
+end
+function drmi
+  docker images -q -f "dangling=true" | xargs -r docker rmi
+end
+
+
+
+
