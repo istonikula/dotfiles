@@ -279,3 +279,8 @@ set $touchpad DLL075B:01 06CB:76AF Touchpad
 exec_always --no-startup-id xmodmap ~/.Xmodmap
 
 focus_follows_mouse no
+
+
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+
