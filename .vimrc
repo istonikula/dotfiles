@@ -31,6 +31,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'blueshirts/darcula'
 Plug 'fcpg/vim-fahrenheit'
 Plug 'mhartington/oceanic-next'
+Plug 'chriskempson/base16-vim'
 
 " syntax 
 Plug 'sheerun/vim-polyglot'
@@ -113,7 +114,9 @@ set noswapfile
 " set termguicolors
 syntax on
 set showmatch
-colo darcula
+let base16colorspace=256
+" colo darcula
+colo base16-tomorrow-night
 set cul
 
 " show invisible characters
