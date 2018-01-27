@@ -1,3 +1,6 @@
+
+set -x PATH $PATH ~/bin
+
 alias ccat='pygmentize'
 
 # Base16 Shell
