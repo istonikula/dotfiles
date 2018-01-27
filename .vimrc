@@ -1,4 +1,3 @@
-
 "--------------------------------------
 " Plugins
 "--------------------------------------
@@ -35,8 +34,6 @@ Plug 'chriskempson/base16-vim'
 
 " syntax 
 Plug 'sheerun/vim-polyglot'
-"Plug 'othree/yajs.vim'
-"Plug 'HerringtonDarkholme/yats.vim'
 
 " js
 Plug 'moll/vim-node'
@@ -47,17 +44,15 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " completion, details: https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neocomplete.vim'
 Plug 'ervandew/supertab'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'sudo yarn global add tern' }
-" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " elixir
 Plug 'mattreduce/vim-mix'
 
-
+" nerdtree file icons
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -71,8 +66,6 @@ set encoding=utf-8 nobomb
 let mapleader="\<Space>" " this MUST come before any <Leader> mappings
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nnoremap <Leader>o : CtrlPBuffer<CR>
-" let g:ctrlp_custom_ignore = 'node_modules\|\.DS_Store\|\.git'
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " The Silver Searcher
 if executable('ag')
@@ -115,7 +108,6 @@ set noswapfile
 syntax on
 set showmatch
 let base16colorspace=256
-" colo darcula
 colo base16-tomorrow-night
 set cul
 
@@ -135,16 +127,6 @@ set backspace=2
 set mouse=a
 
 let g:airline_powerline_fonts = 1
-if has("gui_running")
-  " set guifont=Source\ Code\ Pro\ 10
-  set guifont=RobotoMono\ Nerd\ Font\ 10
-  " set guifont=Monospace\ 10
-endif
-
-
-" disable Background Color Erase (BCE) so that color schemes 
-" render properly when inside tmux
-"set t_ut=
 
 "--------------------------------------
 " Indent
@@ -178,23 +160,10 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "--------------------------------------
-"" Code completion
+" Code completion
 "--------------------------------------
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#omni#functions = {}
-" let g:deoplete#omni#functions.javascript = [
-"   \ 'tern#Complete',
-"   \ 'jspc#omni'
-" \]
-" let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#sources#omni#functions.javascript = [ 'jspc#omni', 'tern#Complete' ]
 
 set completeopt=longest,menuone,preview
-"let g:deoplete#sources = {}
-"let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
 "
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
