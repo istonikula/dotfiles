@@ -8,6 +8,11 @@ if status --is-interactive
   # eval sh $HOME/.config/base16-shell/scripts/base16-tomorrow-dark.sh
   source $HOME/.config/base16-shell/profile_helper.fish
 end
+# Reapply base16 theme, some apps like tig reset the theme after commiting
+function th
+  sh ~/.base16_theme
+end
+
 
 # apt
 alias au="sudo apt update"
@@ -60,7 +65,7 @@ end
 
 set -xg JAVA_HOME /opt/java/jdk1.8
 
-. ~/Projects/KONE/env/kone_profile.fish
+# . ~/Projects/KONE/env/kone_profile.fish
 
 alias ipext="dig +short myip.opendns.com @resolver1.opendns.com"
 

@@ -1,1 +1,0 @@
-/home/isto/.config/fisherman/getopts/getopts.fish

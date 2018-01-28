@@ -1,1 +1,0 @@
-/home/isto/.config/fisherman/simple/functions/fish_prompt.fish
