@@ -35,7 +35,7 @@ end
 
 # network
 function n1
-  sudo modprobe -v ath10k_pci
+  # sudo modprobe -v ath10k_pci
   sudo systemctl restart NetworkManager
 end
 
