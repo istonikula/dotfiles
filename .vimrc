@@ -127,6 +127,7 @@ set backspace=2
 set mouse=a
 
 let g:airline_powerline_fonts = 1
+set guifont=Monoid\ Nerd\ Font\ Mono\ 11
 
 "--------------------------------------
 " Indent
