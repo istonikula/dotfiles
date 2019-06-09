@@ -2,4 +2,5 @@ remove Lock = Caps_Lock
 keycode 66 = Mode_switch
 keycode 32 = o O odiaeresis Odiaeresis
 keycode 38 = a A adiaeresis Adiaeresis
+keycode 26 = e E EuroSign EuroSign
 
