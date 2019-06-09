@@ -246,10 +246,13 @@ bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP-1 --scale 1.38x1.38
   # external 2560x1440 (with new modeline from cvt)
 # bindsym $mod+Mod1+7 "exec --no-startup-id xrandr --newmode '2560x1440_60.00' 312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync;exec --no-startup-id xrandr --addmode DP1 2560x1440_60.00;exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0"
 
-focus_follows_mouse no
-
 # Startup apps
 exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png 
 exec --no-startup-id  dropbox start
 exec --no-startup-id xrandr --dpi 132 # 1.38*96
+
+# Intellij https://youtrack.jetbrains.com/issue/IDEA-188824
+focus_follows_mouse no
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
