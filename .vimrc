@@ -109,6 +109,7 @@ syntax on
 set showmatch
 let base16colorspace=256
 colo base16-tomorrow-night
+hi Search ctermbg=green ctermfg=black
 set cul
 
 " show invisible characters
