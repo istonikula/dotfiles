@@ -14,15 +14,12 @@ login1send() {
 
 case "$1" in
   suspend)
-    # lock && systemctl suspend
     lock && login1send Suspend
     ;;
   reboot)
-    # systemctl reboot
     login1send Reboot
     ;;
   poweroff)
-    # systemctl poweroff
     login1send PowerOff
     ;;
 esac
