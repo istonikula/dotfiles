@@ -229,13 +229,10 @@ bindsym $mod+Delete mode $mode_system
 # Scratchpad
 bindsym $mod+o move scratchpad
 bindsym $mod+i scratchpad show
-bindsym $mod+p [class="Pasaffe"] scratchpad show
-bindsym $mod+j [class="jetbrains-idea" instance="sun-awt-X11-XDialogPeer"] scratchpad show
-bindsym $mod+n [class="Nautilus"] scratchpad show
-bindsym $mod+semicolon [class="Gnome-control-center"] scratchpad show
-for_window [class="Pasaffe"] floating enable, border normal
-for_window [class="Nautilus"] floating enable, border normal
-for_window [class="Gnome-control-center"] floating enable, border none
+bindsym $mod+p [app_id="pasaffe"] scratchpad show
+bindsym $mod+n [app_id="org.gnome.Nautilus"] scratchpad show
+for_window [app_id="pasaffe"] floating enable, border normal
+for_window [app_id="org.gnome.Nautilus"] floating enable, border none
 
 # Displays
   # laptop only
