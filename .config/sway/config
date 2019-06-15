@@ -1,5 +1,15 @@
 set $wallpaper ~/Dropbox/Wallpapers/ubuntu-18.04.jpg
 
+set $bg-color            #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+set $border-color        #9575cd
+set $indicator-color     #00ff00
+
+set $locker 'swaylock -f -e -c "$bg-color"'
+
 #
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
@@ -140,7 +150,7 @@ bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your session.' -b 'Yes, exit sway' 'swaymsg exit'"
 # lock screen
-bindsym $mod+shift+x exec swaylock -fc "$bg-color"
+bindsym $mod+shift+x exec $locker
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -159,13 +169,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $border-color        #9575cd
-set $indicator-color     #00ff00
 
 # window colors
 #                       border              background         text                 indicator        child-border
@@ -214,9 +217,9 @@ bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/Desktop/'
 
 set $mode_system "[s]uspend [r]eboot [p]oweroff"
 mode $mode_system {
-  bindsym s exec swayexit suspend, mode "default"
-  bindsym r exec swayexit reboot, mode "default"
-  bindsym p exec swayexit poweroff, mode "default"
+  bindsym s exec systemctl suspend, mode "default"
+  bindsym r exec systemctl reboot, mode "default"
+  bindsym p exec systemctl poweroff, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
@@ -256,6 +259,13 @@ for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # exec section - run when sway is started
 exec_always --no-startup-id xmodmap ~/.Xmodmap # TODO
 exec --no-startup-id  dropbox start # TODO
+
+# idle config
+exec swayidle -w \
+  timeout 300 $locker \
+  timeout 600 'swaymsg "ouput * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+  before-sleep $locker
 
 # exec xrdb ~/.Xresources 
 exec xrdb -merge ~/.Xresources
