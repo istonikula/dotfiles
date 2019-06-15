@@ -1,6 +1,14 @@
-Xft.dpi: 132
+!Xft.dpi: 132
 !Xft.dpi: 120
 !Xft.dpi: 96
+
+Xft.dpi: 132
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 ! rofi
 !                    bg       fg      altbg    hlbg     hlfg

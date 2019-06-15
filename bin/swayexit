@@ -1,0 +1,27 @@
+#!/bin/bash
+
+lock() {
+  swaylock -fc "#2f343f"
+}
+
+login1send() {
+  dbus-send --system --print-reply \
+    --dest=org.freedesktop.login1 \
+    /org/freedesktop/login1 \
+    org.freedesktop.login1.Manager.$1 \
+    boolean:true
+}
+
+case "$1" in
+  suspend)
+    lock && login1send Suspend
+    ;;
+  reboot)
+    login1send Reboot
+    ;;
+  poweroff)
+    login1send PowerOff
+    ;;
+esac
+
+exit 0
