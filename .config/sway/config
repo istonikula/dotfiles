@@ -266,3 +266,9 @@ exec swayidle -w \
 
 # exec xrdb ~/.Xresources 
 exec xrdb -merge ~/.Xresources
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout us
+    xkb_variant altgr-intl
+    xkb_options compose:menu,lv3:ralt_switch,eurosign:5
+}
