@@ -1,6 +1,6 @@
 {
     "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
@@ -8,13 +8,11 @@
     "modules-center": ["sway/window"],
     "modules-right": [
       "pulseaudio",
-      "network",
       "cpu",
       "memory",
-      "temperature",
       "backlight",
+      "network",
       "battery",
-      "battery#bat2",
       "clock",
       "tray"
     ],
@@ -75,15 +73,15 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%a %d %b %H:%M:%S}",
+        "interval": 1
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% "
     },
     "temperature": {
         // "thermal-zone": 2,
