@@ -31,7 +31,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec gnome-terminal --window-with-profile=i3 --hide-menubar
+# bindsym $mod+Return exec gnome-terminal --window-with-profile=i3 --hide-menubar
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -250,7 +251,10 @@ bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP-1 --scale 1.38x1.38
 exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id feh --bg-scale ~/Dropbox/Wallpapers/ubuntu-18.04.jpg
 exec --no-startup-id  dropbox start
-exec --no-startup-id xrandr --dpi 132 # 1.38*96
+# 1.38 * 96
+# exec --no-startup-id xrandr --dpi 132
+# 1.5 * 96
+exec --no-startup-id xrandr --dpi 144
 
 # Intellij https://youtrack.jetbrains.com/issue/IDEA-188824
 focus_follows_mouse no
