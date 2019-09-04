@@ -1,3 +1,4 @@
+set fish_greeting
 
 # go
 set -x GOROOT /usr/local/go
