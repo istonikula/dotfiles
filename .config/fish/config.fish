@@ -10,16 +10,10 @@ set -x GEM_HOME ~/gems
 # aws vault
 set -x AWS_VAULT_BACKEND secret-service
 
-
-set -x PATH $PATH ~/bin $GOROOT/bin $GOPATH/bin $GEM_HOME/bin
-
-
-alias ccat='pygmentize'
-
+set -x PATH $PATH ~/bin ~/.local/bin $GOROOT/bin $GOPATH/bin $GEM_HOME/bin
 
 # Base16 Shell
 if status --is-interactive
-  # eval sh $HOME/.config/base16-shell/scripts/base16-tomorrow-dark.sh
   source $HOME/.config/base16-shell/profile_helper.fish
 end
 # Reapply base16 theme, some apps like tig reset the theme after commiting
