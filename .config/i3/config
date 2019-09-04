@@ -256,6 +256,10 @@ exec --no-startup-id  dropbox start
 # 1.5 * 96
 exec --no-startup-id xrandr --dpi 144
 
+  # https://github.com/i3-gnome/i3-gnome/wiki/Tips-&-Tricks
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec --no-startup-id gnome-flashback
+
 # Intellij https://youtrack.jetbrains.com/issue/IDEA-188824
 focus_follows_mouse no
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
