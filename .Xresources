@@ -1,7 +1,16 @@
-Xft.dpi: 144
+!Xft.dpi: 144
 !Xft.dpi: 132
 !Xft.dpi: 120
 !Xft.dpi: 96
+
+! https://wiki.manjaro.org/index.php?title=Improve_Font_Rendering
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
 ! rofi
 !                    bg       fg      altbg    hlbg     hlfg
