@@ -222,11 +222,30 @@ bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -font 'Monoisome
 bindsym $mod+Tab exec "rofi -show window -font 'Monoisome 14'"
 
 ###
+# Scratchpad
+#
+bindsym $mod+o move scratchpad
+bindsym $mod+i scratchpad show
+
+###
+# Focus
+#
+focus_follows_mouse no
+
+###
+# Floating windows
+#
+for_window [class="Nautilus"] floating enable
+for_window [class="Gnome-control-center"] floating enable
+for_window [class="Gnome-tweaks"] floating enable
+
+###
 # Startup
 #
 exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id feh --bg-scale ~/Dropbox/Wallpapers/ubuntu-18.04.jpg
-exec --no-startup-id  dropbox start
+exec --no-startup-id dropbox start
+
 #
 # https://github.com/i3-gnome/i3-gnome/wiki/Tips-&-Tricks
 #
