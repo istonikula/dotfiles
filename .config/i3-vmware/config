@@ -215,6 +215,13 @@ bar {
   }
 }
 
+###
+# Screenshots
+#
+set $screenshot_prefix ~/Pictures/Screenshots/screenshot-
+bindsym Print exec maim $screenshot_prefix$(date +%s).png
+bindsym --release $mod+Print exec maim -s $screenshot_prefix$(date +%s).png
+
 ### 
 # Rofi
 #
