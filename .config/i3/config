@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:System San Francisco Display,Font Awesome 10
+font pango:System San Francisco Display,Font Awesome 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -38,8 +38,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -font 'Monoisome 18'"
-bindsym $mod+Tab exec "rofi -show window -font 'Monoisome 18'"
+bindsym $mod+space exec "rofi -show run -modi 'run,drun,window' -font 'Monoisome 14'"
+bindsym $mod+Tab exec "rofi -show window -font 'Monoisome 14'"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -237,9 +237,9 @@ for_window [class="Gnome-control-center"] floating enable, border none
 
 # Displays
   # laptop only
-bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP-1 --primary --scale 1x1 --mode 3200x1800 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-2 --off
+bindsym $mod+Mod1+0 exec --no-startup-id xrandr --output VIRTUAL1 --off --output DP-3 --primary --scale 1x1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-4 --output HDMI-0 --off
   # external UHD
-bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --primary --mode 3840x2160
+bindsym $mod+Mod1+9 exec --no-startup-id xrandr --output DP-3 --off --output DP-1 --primary --mode 2560x1440
   # laptop below of external 1920x1080
 bindsym $mod+Mod1+8 exec --no-startup-id xrandr --output eDP-1 --scale 1x1 --pos 0x1490 --output DP-1 --scale 1.38x1.38 --mode 1920x1080 --fb 3200x3290 --pos 0x0
   # laptop and external fullhd mirror
@@ -248,13 +248,14 @@ bindsym $mod+Mod1+7 exec --no-startup-id xrandr --output eDP-1 --scale 1.38x1.38
 # bindsym $mod+Mod1+7 "exec --no-startup-id xrandr --newmode '2560x1440_60.00' 312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync;exec --no-startup-id xrandr --addmode DP1 2560x1440_60.00;exec --no-startup-id xrandr --output eDP1 --off --output DP1 --scale 1.75x1.75 --mode 2560x1440 --fb 4480x2520 --panning 4480x2520 --pos 0x0"
 
 # Startup apps
-exec_always --no-startup-id xmodmap ~/.Xmodmap
+# exec_always --no-startup-id xmodmap ~/.Xmodmap
+exec_always --no-startup-id setxkbmap -layout us -variant intl 
 exec_always --no-startup-id feh --bg-scale ~/Dropbox/Wallpapers/ubuntu-18.04.jpg
 exec --no-startup-id  dropbox start
 # 1.38 * 96
 # exec --no-startup-id xrandr --dpi 132
 # 1.5 * 96
-exec --no-startup-id xrandr --dpi 144
+#exec --no-startup-id xrandr --dpi 144
 
   # https://github.com/i3-gnome/i3-gnome/wiki/Tips-&-Tricks
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings

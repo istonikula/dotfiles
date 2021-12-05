@@ -10,7 +10,7 @@ set -x GEM_HOME ~/gems
 # aws vault
 set -x AWS_VAULT_BACKEND secret-service
 
-set -x PATH $PATH ~/bin ~/.local/bin $GOROOT/bin $GOPATH/bin $GEM_HOME/bin
+set -x PATH $PATH ~/bin ~/.yarn/bin ~/.tfenv/bin ~/.local/bin $GOROOT/bin $GOPATH/bin $GEM_HOME/bin
 
 # Base16 Shell
 if status --is-interactive
