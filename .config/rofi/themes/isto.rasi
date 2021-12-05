@@ -1,8 +1,8 @@
 * {
     fg: rgba ( 129, 147, 150, 100 % );
     fg-urgent: rgba ( 218, 66, 129, 100 % );
-    bg: rgba ( 39, 50, 56, 100 % );
-    selected-bg: rgba ( 57, 66, 73, 100 % );
+    bg: #232830;
+    selected-bg: #2f343f;
 
     selected-normal-foreground:  @fg;
     foreground:                  @fg;
@@ -23,7 +23,7 @@
     normal-background:           @bg;
     lightfg:                     rgba ( 88, 104, 117, 100 % );
     selected-normal-background:  @selected-bg;
-    border-color:                @fg;
+    border-color:                @selected-bg;
     spacing:                     2;
     separatorcolor:              @selected-bg;
     urgent-background:           @bg;
